@@ -24,37 +24,48 @@
 </head>
 
 <body>
+    <!-- Botão para voltar para página de lista -->
+    <button type="button" class="back_button">Voltar</button>
 
-    <section class="content grass">
-        <!-- Botão para voltar para página de lista -->
-        <button type="button">Voltar</button>
-
+    <section class="content">
         <!-- Seção de informações básicas -->
-        <section class="basic">
+        <section class="basic grass">
             <h1 class="name">Bulbasaur</h1>
             <ol class="types">
                 <li class="type grass">Grass</li>
                 <li class="type poison"> Poison</li>
             </ol>
-        </section>
 
-        <!-- Seção de de imagem -->
-
-        <section class="img">
             <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/1.svg"
                 alt="bulbasaur">
         </section>
 
         <!-- Seção de detalhes -->
         <section class="details">
-            <ol class="about">About
-                <li id="species">Seed</li>
-                <li id="height">0.70cm</li>
-                <li id="weight">6.9kg</li>
-                <li id="abilities">Overgrow, Chlorophyl</li>
-            </ol>
 
-            
+            <div class="menu">
+                <div class="menu_option" onclick="showItems('about')">About</div>
+                <div class="menu_option" onclick="showItems('base_stats')">Base Stats</div>
+            </div>
+
+            <div class="menu_items" id="about">
+                <ol>
+                    <li id="species">Species: Seed</li>
+                    <li id="height">Height: 0.70cm</li>
+                    <li id="weight">Weight: 6.9kg</li>
+                    <li id="abilities">Abilities: Overgrow, Chlorophyl</li>
+                </ol>
+            </div>
+
+            <div class="menu_items" id="base_stats">
+                <ol>
+                    <li id="hp">HP: 100</li>
+                    <li id="attack">Attack: 100</li>
+                    <li id="defense">Defense: 80</li>
+                </ol>
+            </div>
+
+
         </section>
     </section>
 

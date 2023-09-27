@@ -14,6 +14,19 @@ function redirectToDetails(pokemonNumber){
     window.location.href = detailsUrl;
 }
 
+// Função mostra detalhes de acordo com clique no menu
+function showItems(category){
+    // Cria variável para cada item do menu e remove a ativação
+    let menuItems = document.querySelectorAll(".menu_items");
+    menuItems.forEach((item)=>{
+        // Remove a ativação do item
+        item.classList.remove("active");
+    });
+
+    // Adiciona ativação à categoria clicada
+    document.getElementById(category).classList.add("active");
+}
+
 function convertPokemonToLi(pokemon) {
     return `
         <li class="pokemon ${pokemon.type}" onclick="redirectToDetails('${pokemon.number}')">
