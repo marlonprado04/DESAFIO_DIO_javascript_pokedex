@@ -5,9 +5,18 @@ const maxRecords = 151
 const limit = 10
 let offset = 0;
 
+// Função redireciona para página de detalhes ao ser clicada
+function redirectToDetails(pokemonNumber){
+    // Cria variável com URL de detalhes + pokemon id
+    const detailsUrl = `details.html?id=${pokemonNumber}`
+
+    // Redireciona o usuário para a página details.html
+    window.location.href = detailsUrl;
+}
+
 function convertPokemonToLi(pokemon) {
     return `
-        <li class="pokemon ${pokemon.type}">
+        <li class="pokemon ${pokemon.type}" onclick="redirectToDetails('${pokemon.number}')">
             <span class="number">#${pokemon.number}</span>
             <span class="name">${pokemon.name}</span>
 
