@@ -8,7 +8,7 @@ let offset = 0;
 // Função redireciona para página de detalhes ao ser clicada
 function redirectToDetails(pokemonNumber){
     // Cria variável com URL de detalhes + pokemon id
-    const detailsUrl = `details.html?id=${pokemonNumber}`
+    const detailsUrl = `pokemon_profile.html?id=${pokemonNumber}`
 
     // Redireciona o usuário para a página details.html
     window.location.href = detailsUrl;
