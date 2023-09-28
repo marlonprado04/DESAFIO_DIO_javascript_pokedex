@@ -20,7 +20,7 @@ function convertPokeApiDetailToPokemon(pokeDetail) {
   pokemon.species = pokeDetail.species.name;
   pokemon.height = pokeDetail.height;
   pokemon.weight = pokeDetail.weight;
-  const abilities = pokeDetail.abilities.map((abilitie) => abilitie.name);
+  const abilities = pokeDetail.abilities.map((index) => index.ability.name).join(", ");
   pokemon.abilities = abilities;
   pokemon.hp = pokeDetail.stats.find(
     (element) => element.stat.name === "hp"
@@ -44,18 +44,6 @@ pokeApi.getPokemonDetails = (pokemon) => {
   );
 };
 
-// Função para extrair detalhes do pokemon
-pokeApi.getPokemonDetailsToProfile = (id) => {
-  // URL de requisição
-  const url = `https://pokeapi.co/api/v2/pokemon/${id}`
-  // Retornando informações do pokemon tratadas
-  return fetch(url)
-    .then((response) => response.json())
-    .then((pokemonDetails) => {
-      return pokemonDetails;
-    })
-}
-
 // Atribuindo função getPokemons ao objeto, com valores offset e limit em default
 pokeApi.getPokemons = (offset = 0, limit = 5) => {
   // URL da requisição
@@ -75,6 +63,23 @@ pokeApi.getPokemons = (offset = 0, limit = 5) => {
       // Retorna a lista de detalhes de pokemons
       .then((pokemonsDetails) => pokemonsDetails)
       // Printando erro caso haja
+      .catch((error) => console.log(error))
+  );
+};
+
+// Função para extrair detalhes do pokemon
+pokeApi.getPokemonDetailsToProfile = (id) => {
+  // URL de requisição
+  const url = `https://pokeapi.co/api/v2/pokemon/${id}`;
+
+  // Retornando informações do pokemon tratadas
+  return (
+    fetch(url)
+      // Trata o resultado da promise para json
+      .then((response) => response.json())
+      .then((pokemonDetails) => {
+        return convertPokeApiDetailToPokemon(pokemonDetails);
+      })
       .catch((error) => console.log(error))
   );
 };

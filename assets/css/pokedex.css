@@ -90,4 +90,12 @@
     .pokemons {
         grid-template-columns: 1fr 1fr 1fr 1fr;
     }
+
+    .content {
+        max-width: 992px;
+        height: auto;
+        margin: 1rem auto;
+        border-radius: 1rem;
+    }
+
 }

@@ -25,6 +25,7 @@
     padding: 0;
     margin: .625rem;
     color: #fff;
+    text-transform: capitalize;
 }
 
 .content .basic .types{
@@ -84,5 +85,13 @@
 
 .content .details .menu_items ol{
     list-style: none;
+}
+
+#species{
+    text-transform: capitalize;
+}
+
+#abilities{
+    text-transform: capitalize;
 }
 
