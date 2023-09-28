@@ -30,6 +30,60 @@
     <section class="content" id="profileContent">
         <!-- Detalhes do pokemon aqui -->
 
+        <!-- Seção de informações básicas -->
+        <section class="basic ${pokemon.type}">
+            <h1 class="name">${pokemon.name}</h1>
+            <ol class="types">
+                ${pokemon.types
+                .map(
+                (type) =>
+                `<li class="type ${type}"> ${type}</li>`
+                )
+                .join("")}
+            </ol>
+
+            <div class="img">
+                <img src="${pokemon.photo}" alt="${pokemon.img}">
+            </div>
+        </section>
+
+        <!-- Seção de detalhes -->
+        <section class="details">
+
+            <div class="menu">
+                <div class="menu_option" onclick="showItems('about')">About</div>
+                <div class="menu_option" onclick="showItems('base_stats')">Base Stats</div>
+            </div>
+
+            <div class="menu_items" id="about">
+                <ol>
+                    <li id="species">Species: ${
+                        pokemon.species
+                        }</li>
+                    <li id="height">Height: ${
+                        pokemon.height
+                        }</li>
+                    <li id="weight">Weight: ${
+                        pokemon.wight
+                        }</li>
+                    <li id="abilities">Abilities: ${
+                        pokemon.abilities
+                        }</li>
+                </ol>
+            </div>
+
+            <div class="menu_items" id="base_stats">
+                <ol>
+                    <li id="hp">HP: ${pokemon.hp}</li>
+                    <li id="attack">Attack: ${
+                        pokemon.attack
+                        }</li>
+                    <li id="defense">Defense: ${
+                        pokemon.defense
+                        }</li>
+                </ol>
+            </div>
+
         </section>
     </section>
 

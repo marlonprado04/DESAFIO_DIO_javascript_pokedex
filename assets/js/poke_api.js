@@ -44,6 +44,18 @@ pokeApi.getPokemonDetails = (pokemon) => {
   );
 };
 
+// Função para extrair detalhes do pokemon
+pokeApi.getPokemonDetailsToProfile = (id) => {
+  // URL de requisição
+  const url = `https://pokeapi.co/api/v2/pokemon/${id}`
+  // Retornando informações do pokemon tratadas
+  return fetch(url)
+    .then((response) => response.json())
+    .then((pokemonDetails) => {
+      return pokemonDetails;
+    })
+}
+
 // Atribuindo função getPokemons ao objeto, com valores offset e limit em default
 pokeApi.getPokemons = (offset = 0, limit = 5) => {
   // URL da requisição
