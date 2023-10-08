@@ -20,7 +20,9 @@ function convertPokeApiDetailToPokemon(pokeDetail) {
   pokemon.species = pokeDetail.species.name;
   pokemon.height = pokeDetail.height;
   pokemon.weight = pokeDetail.weight;
-  const abilities = pokeDetail.abilities.map((index) => index.ability.name).join(", ");
+  const abilities = pokeDetail.abilities
+    .map((index) => index.ability.name)
+    .join(", ");
   pokemon.abilities = abilities;
   pokemon.hp = pokeDetail.stats.find(
     (element) => element.stat.name === "hp"
